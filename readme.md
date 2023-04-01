@@ -1,6 +1,3 @@
-# Flask JWT Auth
-
-[![Build Status](https://travis-ci.org/realpython/flask-jwt-auth.svg?branch=master)](https://travis-ci.org/realpython/flask-jwt-auth)
 
 ## Want to learn how to build this project?
 
@@ -11,8 +8,6 @@ The initiative is centered on assessing the Teaching Assistant's performance usi
 ## Machine Learning Model
 Around the dataset, I created a machine learning model, which I served and deployed using a Flask microservice.
 
-I built a Machine learning model around the dataset and utilize Flask microservice to serve and deploy the model.
-
 ## Teaching Assistant Evalution
 
 ### Endpoint:
@@ -20,7 +15,7 @@ I built a Machine learning model around the dataset and utilize Flask microservi
 /home
 `
 
-visit the home page fill basic form of the feature to evaluate the TA assistant.
+Visit the home page fill Basic form of the Feature to Evaluate the TA assistant.
 
 If the form is completed and submitted, you will receive a projected score based on your data.
 
@@ -31,9 +26,12 @@ In the Backend
 `
 /predict_score
 `
-Score prediction endpoint Evulates processes the user-submitted form model's data before feeding it to the model. The model evaluates a projected score, and the result is shown on the output.html page.
+Score prediction endpoint Evaluates processes the user-submitted form model's data before feeding it to the model. The model evaluates a projected score, and the result is shown on the output.html page.
 
 ### Endpoints
+
+Flask application includes a simple microservice where you could add, edit, generate, and alter the TA dataset at any time.
+
 1. /add_TA [POST]
 
 2. /update_ta/<int:id>['PUT']
@@ -42,14 +40,14 @@ Score prediction endpoint Evulates processes the user-submitted form model's dat
 
 4. /delete_ta/<int:id,['DELETE']
 
-Note: The above endpoints are JWT token protected to utilize the service users first need to 
+Note: The above endpoints are JWT token protected [Users need to Register and Generated Unique Token to access above Endpoints]
 
-5. register_user/ #Register New User
+5. /register_user #Register New User
 
-6. login_user/ #Generate Unique Token for authencation
+6. /login_user #Generate Unique Token for authencation
 
 The microservice is Simple yet elegant.
-Minor adjustments. Flask includes a simple microservice where you could add, edit, generate, and alter the TA dataset at any time.
+
 
 ## Want to use this project?
 
@@ -73,7 +71,7 @@ or
 $ export APP_SETTINGS="project.server.config.ProductionConfig"
 ```
 
-Create a .env folder and place the secret key inside:
+Create a .env File and place the SECRET_KEY:
 
 ```sh
 $ SECRET_KEY="change_me"
@@ -81,11 +79,11 @@ $ SECRET_KEY="change_me"
 
 ### Create DB
 
-Create the databases in `mysql` or Database of your Choice:
+Create the Databases in `mysql` or Database of your Choice:
 
 ```sh
 $ create database <Database Name>
-# \q
+
 ```
 
 Create the tables and run the migrations:
