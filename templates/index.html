@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TA Evaluation Input Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>TA Evaluation Input Page</h1>
+    <form method="post" action="/predict_score">
+        <label for="is_native_english_speaker">Is the TA a native English speaker?</label>
+        <select name="is_native_english_speaker" id="is_native_english_speaker">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+
+        <label for="instructor">Course instructor:</label>
+        <input type="number" name = "instructor" id="instructor" min="1" max="25">
+        
+        <label for="course">Course:</label>
+        <input type="number" name = "course" id="course" min="1" max="26">
+
+        <label for="is_summer">Is it a summer or regular semester?</label>
+        <select name="is_summer" id="is_summer">
+            <option value="1">Summer</option>
+            <option value="0">Regular</option>
+        </select>
+        <label for="class_size">Class size:</label>
+        <input type="number" name="class_size" id="class_size" min="1">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
