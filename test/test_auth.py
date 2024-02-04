@@ -8,12 +8,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 
 import json
+import logging
 
 from base import BaseTestCase
-from server import db
 
 from auth.models import User
-import logging
+from server import db
 
 
 class TestRegisterAPI(BaseTestCase):

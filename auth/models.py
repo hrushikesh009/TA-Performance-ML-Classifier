@@ -1,6 +1,8 @@
 # project/server/models.py
 
-import os,sys
+import os
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Add the parent directory to the system path
@@ -8,7 +10,9 @@ sys.path.append(BASE_DIR)
 import datetime
 
 from werkzeug.security import check_password_hash, generate_password_hash
+
 from server import db
+
 
 class User(db.Model):
     """ User Model for storing user related details """

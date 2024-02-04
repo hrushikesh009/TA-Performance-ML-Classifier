@@ -1,6 +1,8 @@
 # """Validator Module"""
 
-import os,sys
+import os
+import sys
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Add the parent directory to the system path

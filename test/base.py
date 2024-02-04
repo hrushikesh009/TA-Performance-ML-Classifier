@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(BASE_DIR)
 from flask_testing import TestCase
 
-from server import app,db
+from server import app, db
 
 
 class BaseTestCase(TestCase):

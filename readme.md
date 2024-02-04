@@ -1,65 +1,51 @@
+# Project Overview
 
-## Want to learn how to build this project?
+## Purpose
 
-The initiative is centered on assessing the Teaching Assistant's performance using the Teaching Assistant Evaluation Dataset. The information is comprised of assessments of teaching effectiveness from three ordinary semesters and two
-
-151 TA engagements throughout the summer semesters at the Statistics Department of Madison's University of Wisconsin. The scores were split into three fairly equal groups. categories ("low", "medium", and "high") ("low", "medium", and "high").
+This initiative focuses on evaluating Teaching Assistant (TA) performance using the Teaching Assistant Evaluation Dataset. Comprising assessments from various semesters and summer engagements, scores are categorized as "low," "medium," and "high."
 
 ## Machine Learning Model
-Around the dataset, I created a machine learning model, which I served and deployed using a Flask microservice.
 
-## Teaching Assistant Evalution
+Built around the dataset, a machine learning model is created and deployed through a Flask microservice.
+If you are interested in going deeper into the understanding and training of the ML model, please see `TA_Performance_ML_Classifier.ipynb`. It offers a complete guide to training, evaluating, and fine-tuning/optimizing the ML model.
 
-### Endpoint:
-`
-/home
-`
+## TA Evaluation
 
-Visit the home page fill Basic form of the Feature to Evaluate the TA assistant.
+### Endpoint: `/home`
 
-If the form is completed and submitted, you will receive a projected score based on your data.
+Visit the home page, fill a basic form to evaluate TA performance. Upon form submission, receive a projected score based on provided data.
 
 ## Backend Services
 
-In the Backend 
+### Endpoint: `/predict_score`
 
-`
-/predict_score
-`
-Score prediction endpoint Evaluates processes the user-submitted form model's data before feeding it to the model. The model evaluates a projected score, and the result is shown on the output.html page.
+This endpoint processes user-submitted data before feeding it to the model. The evaluated score is displayed on the output.html page.
 
-### Endpoints
+### Microservice Endpoints
 
-Flask application includes a simple microservice where you could add, edit, generate, and alter the TA dataset at any time.
+1. `/add_TA [POST]`
+2. `/update_ta/<int:id> [PUT]`
+3. `/retrieve_ta/<int:id> [GET]`
+4. `/delete_ta/<int:id> [DELETE]`
 
-1. /add_TA [POST]
+Note: Above endpoints are JWT token-protected. Users register and generate unique tokens to access these services.
 
-2. /update_ta/<int:id>['PUT']
+5. `/register_user` - Register new user
+6. `/login_user` - Generate unique token for authentication
 
-3. /retrieve_ta/<int:id>,['GET']
+The microservice design is simple yet elegant.
 
-4. /delete_ta/<int:id,['DELETE']
-
-Note: The above endpoints are JWT token protected [Users need to Register and Generated Unique Token to access above Endpoints]
-
-5. /register_user #Register New User
-
-6. /login_user #Generate Unique Token for authencation
-
-The microservice is Simple yet elegant.
-
-
-## Want to use this project?
+## Using the Project
 
 ### Basics
 
-1. Fork/Clone
-1. Activate a virtualenv
-1. Install the requirements
+1. **Fork/Clone**
+2. **Activate a virtualenv**
+3. **Install requirements**
 
 ### Set Environment Variables
 
-Update *project/server/config.py*, and then run:
+Update *project/server/config.py* and run:
 
 ```sh
 $ set APP_SETTINGS="server.config.DevelopmentConfig"
@@ -71,26 +57,25 @@ or
 $ export APP_SETTINGS="project.server.config.ProductionConfig"
 ```
 
-Create a .env File and place the SECRET_KEY:
+Create a .env file and place the SECRET_KEY:
 
 ```sh
 $ SECRET_KEY="change_me"
 ```
 
-### Create DB
+### Create Database
 
-Create the Databases in `mysql` or Database of your Choice:
+Create databases in `mysql` or your chosen database:
 
 ```sh
 $ create database <Database Name>
-
 ```
 
-Create the tables and run the migrations:
+Create tables and run migrations:
 
 ```sh
 $ Set Flask_APP = manage.py
-$ Flask Sheel
+$ Flask Shell
 $ From auth.models import db
 $ db.create_all()
 ```
@@ -101,9 +86,9 @@ $ db.create_all()
 $ python manage.py runserver
 ```
 
-Access the application at the address [http://localhost:5000/](http://localhost:5000/)
+Access the application at [http://localhost:5000/](http://localhost:5000/)
 
-> Want to specify a different port?
+> Specify a different port:
 
 > ```sh
 > $ python manage.py runserver -h 0.0.0.0 -p 8080
